@@ -1,0 +1,74 @@
+# =============================
+# Compiled Java output
+# =============================
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+# =============================
+# Maven
+# =============================
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# =============================
+# IntelliJ IDEA
+# =============================
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+.idea/modules.xml
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/shelf/
+.idea/dictionaries/
+
+# =============================
+# Eclipse
+# =============================
+.project
+.classpath
+.settings/
+bin/
+
+# =============================
+# VS Code
+# =============================
+.vscode/
+
+# =============================
+# Environment and secrets
+# =============================
+.env
+.env.local
+.env.*.local
+*.env
+application-local.properties
+application-prod.properties
+
+# =============================
+# OS generated files
+# =============================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# =============================
+# Logs
+# =============================
+*.log
+logs/
+
+# =============================
+# Spring Boot DevTools restart
+# =============================
+.reloadtrigger

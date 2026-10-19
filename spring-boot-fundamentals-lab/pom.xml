@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <!--
+        The parent tag is the heart of Spring Boot's "convention over configuration" approach.
+        It inherits from spring-boot-starter-parent, which pre-configures:
+          - Compatible library versions (no version conflicts)
+          - Maven plugin settings for building Spring Boot apps
+          - Default encoding (UTF-8)
+          - Java compilation settings
+        Without this, you would need to manually specify hundreds of dependency versions.
+    -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.3.5</version>
+        <relativePath/> <!-- Look up parent from the Maven repository, not local -->
+    </parent>
+
+    <!-- Your project's unique identity in the Maven ecosystem -->
+    <groupId>com.example</groupId>
+    <artifactId>spring-boot-fundamentals-lab</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>spring-boot-fundamentals-lab</name>
+    <description>Project 1 - Spring Boot Fundamentals Lab: Learning IoC, DI, Beans, and HTTP basics</description>
+
+    <properties>
+        <!--
+            This tells both Java and Maven to use Java 21 features.
+            spring-boot-starter-parent respects this property automatically.
+        -->
+        <java.version>21</java.version>
+    </properties>
+
+    <dependencies>
+
+        <!--
+            spring-boot-starter-web is a "starter" dependency.
+            One line here gives you:
+              - Spring MVC (handles HTTP requests)
+              - Embedded Tomcat server (no need to install a separate server)
+              - Jackson (converts Java objects to/from JSON)
+              - Spring core and context (the IoC container)
+            This is Spring Boot's "opinionated" approach: sensible defaults bundled together.
+        -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!--
+            spring-boot-starter-test bundles everything needed for testing:
+              - JUnit 5 (test framework)
+              - Mockito (mocking library)
+              - Spring Test (for testing Spring components)
+            scope=test means this dependency is ONLY on the classpath during testing,
+            not included in the final packaged application.
+        -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!--
+                The Spring Boot Maven plugin lets you:
+                  - Run the app with: mvn spring-boot:run
+                  - Package it as a self-contained "fat JAR" with: mvn clean package
+                A fat JAR includes your code AND all dependencies, so you can run it
+                anywhere with just: java -jar yourapp.jar
+            -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
